@@ -1,4 +1,6 @@
-﻿namespace XamarinTodo.Domain.Models.Todos
+﻿using XamarinTodo.Domain.Models.Common;
+
+namespace XamarinTodo.Domain.Models.Todos
 {
     public class TodoIsCompleted : ValueObject<TodoIsCompleted>
     {

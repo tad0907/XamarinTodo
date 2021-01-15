@@ -1,4 +1,5 @@
 ﻿using System;
+using XamarinTodo.Domain.Models.Common;
 
 namespace XamarinTodo.Domain.Models.Todos
 {

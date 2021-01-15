@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace XamarinTodo.Domain.Models
+namespace XamarinTodo.Domain.Models.Common
 {
     public abstract class ValueObject<T> where T : ValueObject<T>
     {
