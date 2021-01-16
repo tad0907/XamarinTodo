@@ -8,4 +8,8 @@
     <Folder Include="UseCases\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\XamarinTodo.Domain\XamarinTodo.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

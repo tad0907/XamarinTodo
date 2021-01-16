@@ -6,9 +6,9 @@ namespace XamarinTodo.Domain.Models.Todos
 {
     public interface ITodoRepository
     {
+        void Delete(Todo todo);
         Todo Find(TodoId id);
         List<Todo> FindAll();
-        void Save(Todo phytofood);
-        void Delete(Todo phytofood);
+        void Save(Todo todo);
     }
 }
