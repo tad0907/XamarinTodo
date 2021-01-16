@@ -13,7 +13,7 @@ namespace XamarinTodo.SQLite.Contexts
         {
         }
 
-        public DbSet<TodoDataModel> Users { get; set; }
+        public DbSet<TodoDataModel> Todos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

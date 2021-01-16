@@ -9,7 +9,7 @@ namespace XamarinTodo.SQLite.Persistents.Todos
     {
         public Todo Create(TodoTitle title, TodoDeadline deadline)
         {
-            var id = new TodoId(Guid.NewGuid().ToString());
+            var id = new TodoId(Guid.NewGuid());
             var isCompleted = new TodoIsCompleted(false);
             return new Todo(id, title, deadline, isCompleted);
         }

@@ -18,6 +18,6 @@ namespace XamarinTodo.SQLite.Models
 
         public DateTime? Deadline { get; set; }
 
-        public bool IsComplete { get; set; }
+        public bool IsCompleted { get; set; }
     }
 }
