@@ -6,7 +6,7 @@ using XamarinTodo.Domain.Models.Todos;
 using XamarinTodo.SQLite.Contexts;
 using XamarinTodo.SQLite.Models;
 
-namespace XamarinTodo.SQLite.Persistents.Todos
+namespace XamarinTodo.SQLite.Persistence.Todos
 {
     public class TodoRepository : ITodoRepository
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using XamarinTodo.Domain.Models.Todos;
 
-namespace XamarinTodo.SQLite.Persistents.Todos
+namespace XamarinTodo.SQLite.Persistence.Todos
 {
     public class TodoFactory : ITodoFactory
     {

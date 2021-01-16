@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using XamarinTodo.Domain.Models.Todos;
 using XamarinTodo.SQLite.Contexts;
-using XamarinTodo.SQLite.Persistents.Todos;
+using XamarinTodo.SQLite.Persistence.Todos;
 using XamarinTodo.UseCase.UseCases.Todos;
 
 namespace XamarinTodo.Config
