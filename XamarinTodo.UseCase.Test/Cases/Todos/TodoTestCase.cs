@@ -28,14 +28,32 @@ namespace XamarinTodo.UseCase.Test.Cases.Todos
         }
 
         [TestMethod]
-        public void TestSuccessMinTodoTitle()
+        public void Todoタイトル_未入力()
         {
-            // 最短のユーザ名（３文字）のユーザが正常に生成できるか
-            var title = "あいう";
+            bool exceptionOccured = false;
+            try
+            {
+                var deadline = DateTime.Now;
+                var command = new TodoSaveCommand(null, deadline);
+                _todoUseCase.Save(command);
+            }
+            catch (Exception e)
+            {
+                Assert.AreEqual("タイトルを入力してください。", e.Message);
+                exceptionOccured = true;
+            }
+
+            Assert.IsTrue(exceptionOccured);
+        }
+
+        [TestMethod]
+        public void Todoタイトル_最大桁_20_入力()
+        {
+            var title = "あいうえおかきくけこさしすせそたちつてと";
             var deadline = DateTime.Now;
-            var inputData = new TodoSaveCommand(title, deadline);
-            var outputData = _todoUseCase.Save(inputData);
-            Assert.IsNotNull(outputData.CreatedId);
+            var command = new TodoSaveCommand(title, deadline);
+            var result = _todoUseCase.Save(command);
+            Assert.IsNotNull(result.CreatedId);
 
             // ユーザが正しく保存されているか
             var createdTitle = new TodoTitle(title);
@@ -44,19 +62,23 @@ namespace XamarinTodo.UseCase.Test.Cases.Todos
         }
 
         [TestMethod]
-        public void TestSuccessMaxTodoTitle()
+        public void Todoタイトル_最大桁_20_超過入力()
         {
-            // 最短のユーザ名（２０文字）のユーザが正常に生成できるか
-            var title = "あいうえおかきくけこさしすせそたちつてと";
-            var deadline = DateTime.Now;
-            var inputData = new TodoSaveCommand(title, deadline);
-            var outputData = _todoUseCase.Save(inputData);
-            Assert.IsNotNull(outputData.CreatedId);
+            bool exceptionOccured = false;
+            try
+            {
+                var title = "あいうえおかきくけこさしすせそたちつてとな";
+                var deadline = DateTime.Now;
+                var command = new TodoSaveCommand(title, deadline);
+                _todoUseCase.Save(command);
+            }
+            catch(Exception e)
+            {
+                Assert.AreEqual("タイトルを20文字以内で入力してください。", e.Message);
+                exceptionOccured = true;
+            }
 
-            // ユーザが正しく保存されているか
-            var createdTitle = new TodoTitle(title);
-            var createdTodo = _todoRepository.Find(createdTitle);
-            Assert.IsNotNull(createdTodo);
+            Assert.IsTrue(exceptionOccured);
         }
     }
 }

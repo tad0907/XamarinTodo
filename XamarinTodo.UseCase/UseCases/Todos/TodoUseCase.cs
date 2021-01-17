@@ -26,9 +26,6 @@ namespace XamarinTodo.UseCase.UseCases.Todos
         {
             using (var transaction = new TransactionScope())
             {
-                if (command.Title.Length > 20)
-                    throw new Exception("タイトルは２０文字以下で入力してください。");
-
                 var title = new TodoTitle(command.Title);
                 var deadline = new TodoDeadline(command.Deadline);
 
