@@ -28,18 +28,34 @@ namespace XamarinTodo.UseCase.Test.Cases.Todos
         }
 
         [TestMethod]
-        public void TestSuccessMinUserName()
+        public void TestSuccessMinTodoTitle()
         {
             // 最短のユーザ名（３文字）のユーザが正常に生成できるか
-            var title = "Test";
+            var title = "あいう";
             var deadline = DateTime.Now;
             var inputData = new TodoSaveCommand(title, deadline);
             var outputData = _todoUseCase.Save(inputData);
             Assert.IsNotNull(outputData.CreatedId);
 
             // ユーザが正しく保存されているか
-            var createdId = new TodoTitle(title);
-            var createdTodo = _todoRepository.Find(createdId);
+            var createdTitle = new TodoTitle(title);
+            var createdTodo = _todoRepository.Find(createdTitle);
+            Assert.IsNotNull(createdTodo);
+        }
+
+        [TestMethod]
+        public void TestSuccessMaxTodoTitle()
+        {
+            // 最短のユーザ名（２０文字）のユーザが正常に生成できるか
+            var title = "あいうえおかきくけこさしすせそたちつてと";
+            var deadline = DateTime.Now;
+            var inputData = new TodoSaveCommand(title, deadline);
+            var outputData = _todoUseCase.Save(inputData);
+            Assert.IsNotNull(outputData.CreatedId);
+
+            // ユーザが正しく保存されているか
+            var createdTitle = new TodoTitle(title);
+            var createdTodo = _todoRepository.Find(createdTitle);
             Assert.IsNotNull(createdTodo);
         }
     }

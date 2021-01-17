@@ -80,7 +80,7 @@ namespace XamarinTodo.SQLite.Persistence.Todos
         private Todo ToModel(TodoDataModel from)
         {
             return new Todo(
-                new TodoId(from.Id.ToString()),
+                new TodoId(from.Id),
                 new TodoTitle(from.Title),
                 new TodoDeadline(from.Deadline),
                 new TodoIsCompleted(from.IsCompleted)

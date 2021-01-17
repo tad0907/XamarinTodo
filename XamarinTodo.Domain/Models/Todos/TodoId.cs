@@ -5,15 +5,12 @@ namespace XamarinTodo.Domain.Models.Todos
 {
     public class TodoId : ValueObject<TodoId>
     {
-        public TodoId(string value)
+        public TodoId(Guid value)
         {
-            if (string.IsNullOrEmpty(value))
-                throw new ArgumentNullException(nameof(value));
-
             Value = value;
         }
 
-        public string Value { get; }
+        public Guid Value { get; }
 
         protected override bool EqualsCore(TodoId other)
         {
