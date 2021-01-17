@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Transactions;
 using XamarinTodo.Domain.Models.Todos;
 using XamarinTodo.Domain.Services;
+using XamarinTodo.UseCase.UseCases.Todos.Common;
+using XamarinTodo.UseCase.UseCases.Todos.GetAll;
 using XamarinTodo.UseCase.UseCases.Todos.Save;
 
 namespace XamarinTodo.UseCase.UseCases.Todos
@@ -20,6 +23,12 @@ namespace XamarinTodo.UseCase.UseCases.Todos
             _todoFactory = todoFactory;
             _todoRepository = todoRepository;
             _todoService = todoService;
+        }
+
+        public TodoGetAllResult GetAll()
+        {
+            var todos = _todoRepository.FindAll();
+            return new TodoGetAllResult(todos.Select(x => new TodoData(x)).ToList());
         }
 
         public TodoSaveResult Save(TodoSaveCommand command)
