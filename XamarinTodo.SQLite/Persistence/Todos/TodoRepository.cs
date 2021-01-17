@@ -42,6 +42,18 @@ namespace XamarinTodo.SQLite.Persistence.Todos
             return ToModel(target);
         }
 
+        public Todo Find(TodoTitle title)
+        {
+            var target = _context.Todos
+                .FirstOrDefault(todoData => todoData.Title == title.Value);
+            if (target == null)
+            {
+                return null;
+            }
+
+            return ToModel(target);
+        }
+
         public List<Todo> FindAll()
         {
             return _context.Todos.Select(ToModel).ToList();
@@ -68,7 +80,7 @@ namespace XamarinTodo.SQLite.Persistence.Todos
         private Todo ToModel(TodoDataModel from)
         {
             return new Todo(
-                new TodoId(from.Id),
+                new TodoId(from.Id.ToString()),
                 new TodoTitle(from.Title),
                 new TodoDeadline(from.Deadline),
                 new TodoIsCompleted(from.IsCompleted)

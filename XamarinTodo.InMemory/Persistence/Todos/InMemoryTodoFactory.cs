@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using XamarinTodo.Domain.Models.Todos;
+using XamarinTodo.InMemory.Foundation;
 
 namespace XamarinTodo.InMemory.Persistence.Todos
 {
@@ -10,13 +11,14 @@ namespace XamarinTodo.InMemory.Persistence.Todos
         public InMemoryTodoFactory()
         {
         }
+        public SerialNumberAssigner NumberAssigner { get; } = new SerialNumberAssigner();
 
         public Todo Create(TodoTitle title, TodoDeadline deadline)
         {
-            var id = new TodoId(Guid.NewGuid());
+            var rawId = NumberAssigner.Next();
             var isCompleted = new TodoIsCompleted(false);
 
-            return new Todo(id, title, deadline, isCompleted);
+            return new Todo(new TodoId(rawId.ToString()), title, deadline, isCompleted);
         }
     }
 }

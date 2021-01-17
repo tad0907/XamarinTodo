@@ -1,34 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using XamarinTodo.Domain.Models.Todos;
+using XamarinTodo.InMemory.Foundation;
 
 namespace XamarinTodo.InMemory.Persistence.Todos
 {
-    public class InMemoryTodoRepository : ITodoRepository
+    public class InMemoryTodoRepository : InMemoryRepositoryBase<TodoId, Todo>, ITodoRepository
     {
-        public InMemoryTodoRepository()
+        protected override TodoId GetKey(Todo value)
         {
+            return value.Id;
         }
 
-        public void Delete(Todo todo)
+        protected override Todo DeepClone(Todo value)
         {
-            throw new NotImplementedException();
+            return new Todo(
+                value.Id,
+                value.Title,
+                value.Deadline,
+                value.IsCompleted
+            );
         }
 
-        public Todo Find(TodoId id)
+        public Todo Find(TodoTitle title)
         {
-            throw new NotImplementedException();
+            var target = Db.Values.FirstOrDefault(x => x.Title.Equals(title));
+            if (target != null)
+            {
+                return DeepClone(target);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public List<Todo> FindAll()
         {
-            throw new NotImplementedException();
-        }
-
-        public void Save(Todo todo)
-        {
-            throw new NotImplementedException();
+            return Db.Values
+                .Select(DeepClone)
+                .ToList();
         }
     }
 }

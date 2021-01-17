@@ -16,7 +16,8 @@ namespace XamarinTodo.InMemory.Foundation
 
         public virtual TValue Find(TKey key)
         {
-            if (Db.TryGetValue(key, out var value))
+            var result = Db.TryGetValue(key, out var value);
+            if (result)
             {
                 var instance = DeepClone(value);
                 return instance;

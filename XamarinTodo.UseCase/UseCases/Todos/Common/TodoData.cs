@@ -12,7 +12,7 @@ namespace XamarinTodo.UseCase.UseCases.Todos.Common
         {
         }
 
-        public TodoData(Guid id, string title, DateTime? deadline, bool isCompleted)
+        public TodoData(string id, string title, DateTime? deadline, bool isCompleted)
         {
             Id = id;
             Title = title;
@@ -20,7 +20,7 @@ namespace XamarinTodo.UseCase.UseCases.Todos.Common
             IsCompleted = isCompleted;
         }
 
-        public Guid Id { get; }
+        public string Id { get; }
 
         public string Title { get; }
 
