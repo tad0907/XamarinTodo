@@ -28,6 +28,43 @@ namespace XamarinTodo.UseCase.Test.Cases.Todos
         }
 
         [TestMethod]
+        public void Todo全件取得()
+        {
+            var title1 = "1番目のタイトル";
+            var deadline1 = DateTime.Now;
+            var command1 = new TodoSaveCommand(title1, deadline1);
+
+            var title2 = "2番目のタイトル";
+            var deadline2 = DateTime.Now;
+            var command2 = new TodoSaveCommand(title2, deadline2);
+
+            var title3 = "3番目のタイトル";
+            var deadline3 = DateTime.Now;
+            var command3 = new TodoSaveCommand(title3, deadline3);
+            try
+            {
+                _todoUseCase.Save(command1);
+                _todoUseCase.Save(command2);
+                _todoUseCase.Save(command3);
+            }
+            catch (Exception e)
+            {
+                Assert.Fail(e.Message);
+            }
+
+            var result = _todoUseCase.GetAll();
+
+            Assert.AreEqual(title1, result.Todos[0].Title);
+            Assert.AreEqual(deadline1, result.Todos[0].Deadline);
+
+            Assert.AreEqual(title2, result.Todos[1].Title);
+            Assert.AreEqual(deadline2, result.Todos[1].Deadline);
+
+            Assert.AreEqual(title3, result.Todos[2].Title);
+            Assert.AreEqual(deadline3, result.Todos[2].Deadline);
+        }
+
+        [TestMethod]
         public void Todoタイトル_未入力()
         {
             bool exceptionOccured = false;
