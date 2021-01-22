@@ -16,12 +16,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\XamarinTodo.Domain\XamarinTodo.Domain.csproj" />
     <ProjectReference Include="..\..\XamarinTodo.SQLite\XamarinTodo.SQLite.csproj" />
     <ProjectReference Include="..\..\XamarinTodo.UseCase\XamarinTodo.UseCase.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Pages\Todos\TodoListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

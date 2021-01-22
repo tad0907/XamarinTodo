@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using XamarinTodo.Models.Common;
 
 namespace XamarinTodo.Models.Todos
 {
-    public class TodoPageModel
+    public class TodoPageModel : PageModelBase
     {
         public TodoPageModel()
         {
