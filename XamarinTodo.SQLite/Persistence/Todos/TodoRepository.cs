@@ -10,9 +10,9 @@ namespace XamarinTodo.SQLite.Persistence.Todos
 {
     public class TodoRepository : ITodoRepository
     {
-        private readonly MyDbContext _context;
+        private readonly LocalDbContext _context;
 
-        public TodoRepository(MyDbContext context)
+        public TodoRepository(LocalDbContext context)
         {
             _context = context;
         }

@@ -7,9 +7,9 @@ using XamarinTodo.SQLite.Models;
 
 namespace XamarinTodo.SQLite.Contexts
 {
-    public class MyDbContext : DbContext
+    public class LocalDbContext : DbContext
     {
-        public MyDbContext(DbContextOptions<MyDbContext> options)
+        public LocalDbContext(DbContextOptions<LocalDbContext> options)
             : base(options)
         {
         }
@@ -19,7 +19,7 @@ namespace XamarinTodo.SQLite.Contexts
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connectionString =
-                new SqliteConnectionStringBuilder { DataSource = @"  C:\sample\sample.db" }.ToString();
+                new SqliteConnectionStringBuilder { DataSource = "Data Source=LocalDB.db;" }.ToString();
             optionsBuilder.UseSqlite(new SqliteConnection(connectionString));
         }
     }

@@ -33,9 +33,9 @@ namespace XamarinTodo.Config
 
         private void SetupRepositories(IServiceCollection services)
         {
-            services.AddDbContext<MyDbContext>(options =>
+            services.AddDbContext<LocalDbContext>(options =>
             {
-                options.UseSqlite("");
+                options.UseSqlite("Data Source=LocalDB.db;");
             });
 
             services.AddTransient<ITodoRepository, TodoRepository>();
