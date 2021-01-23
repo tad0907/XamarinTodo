@@ -7,17 +7,9 @@ namespace XamarinTodo.Config
 {
     class DependencySetupFactory
     {
-        public IDependencySetup CreateSetup(IConfiguration configuration)
+        public IDependencySetup CreateSetup()
         {
-            var setupName = configuration["Dependency:setup"];
-            switch (setupName)
-            {
-                case nameof(DependencySetup):
-                    return new DependencySetup(configuration);
-
-                default:
-                    throw new NotSupportedException(setupName + " is not registered.");
-            }
+            return new DependencySetup();
         }
     }
 }

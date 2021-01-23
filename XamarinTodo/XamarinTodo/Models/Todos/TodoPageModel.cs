@@ -5,7 +5,7 @@ using XamarinTodo.Models.Common;
 
 namespace XamarinTodo.Models.Todos
 {
-    public class TodoPageModel : PageModelBase
+    public class TodoPageModel
     {
         public TodoPageModel()
         {

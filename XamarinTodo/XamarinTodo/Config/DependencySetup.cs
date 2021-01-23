@@ -13,11 +13,8 @@ namespace XamarinTodo.Config
 {
     public class DependencySetup : IDependencySetup
     {
-        private readonly IConfiguration _configuration;
-
-        public DependencySetup(IConfiguration configuration)
+        public DependencySetup()
         {
-            _configuration = configuration;
         }
 
         public void Run(IServiceCollection services)
@@ -38,7 +35,7 @@ namespace XamarinTodo.Config
         {
             services.AddDbContext<MyDbContext>(options =>
             {
-                options.UseSqlite(_configuration.GetConnectionString("DefaultConnection"));
+                options.UseSqlite("");
             });
 
             services.AddTransient<ITodoRepository, TodoRepository>();

@@ -1,6 +1,8 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Microsoft.Extensions.DependencyInjection;
+using XamarinTodo.Config;
 
 namespace XamarinTodo
 {
@@ -9,6 +11,12 @@ namespace XamarinTodo
         public App()
         {
             InitializeComponent();
+
+            var services = new ServiceCollection();
+
+            var factory = new DependencySetupFactory();
+            var setup = factory.CreateSetup();
+            setup.Run(services);
 
             MainPage = new MainPage();
         }

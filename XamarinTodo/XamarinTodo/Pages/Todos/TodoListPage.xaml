@@ -4,10 +4,22 @@
              xmlns:model="clr-namespace:XamarinTodo.Models.Todos"
              x:Class="XamarinTodo.Pages.Todos.TodoListPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ListView x:Name="TodoListView"
+                  HasUnevenRows="True"
+                  ItemTapped="TodoListView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="{Binding ImageName}"/>
+                            <StackLayout>
+                                <Label Text="{Binding Title}" TextColor="Blue"/>
+                                <Label Text="{Binding SubTitle}" TextColor="Gray"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>

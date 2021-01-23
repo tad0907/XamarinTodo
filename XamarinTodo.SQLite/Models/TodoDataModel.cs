@@ -6,9 +6,11 @@ using System.Text;
 
 namespace XamarinTodo.SQLite.Models
 {
-    [Table("Todo")]
+    [Table("Todos")]
     public class TodoDataModel
     {
+        [Key]
+        [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public Guid Id { get; set; }
 
