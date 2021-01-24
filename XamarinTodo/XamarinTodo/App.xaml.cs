@@ -22,7 +22,7 @@ namespace XamarinTodo
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("NavigationPage/TodoListPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

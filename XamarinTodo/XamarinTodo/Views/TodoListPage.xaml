@@ -5,5 +5,20 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="XamarinTodo.Views.TodoListPage"
              Title="{Binding Title}">
-  
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding Todos}"
+                  HasUnevenRows="True"
+                  ItemTapped="TodoListView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding IsCompleted}"/>
+                            <Label Text="{Binding Title}" TextColor="Blue"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
 </ContentPage>

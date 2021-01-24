@@ -8,5 +8,10 @@ namespace XamarinTodo.Views
         {
             InitializeComponent();
         }
+
+        private void TodoListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+
+        }
     }
 }
