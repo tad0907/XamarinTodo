@@ -13,7 +13,7 @@ namespace XamarinTodo.ViewModels
         public MainPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-            Title = "Main Page";
+            PageTitle = "Main Page";
         }
     }
 }
