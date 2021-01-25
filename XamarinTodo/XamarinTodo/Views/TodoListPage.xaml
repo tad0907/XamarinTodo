@@ -4,7 +4,7 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="XamarinTodo.Views.TodoListPage"
-             Title="{Binding Title}">
+             Title="{Binding PageTitle}">
     <ContentPage.Content>
         <ListView ItemsSource="{Binding Todos}"
                   HasUnevenRows="True"
@@ -14,7 +14,7 @@
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
                             <CheckBox IsChecked="{Binding IsCompleted}"/>
-                            <Label Text="{Binding Title}" TextColor="Blue"/>
+                            <Label Text="{Binding Title}"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
