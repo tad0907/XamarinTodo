@@ -17,17 +17,13 @@ namespace XamarinTodo.ViewModels
                    : base(navigationService)
         {
             _useCase = useCase;
+
+            CreateButton = new DelegateCommand(Create);
         }
 
         public override void Initialize(INavigationParameters parameters)
         {
             base.Initialize(parameters);
-        }
-
-        public void Create()
-        {
-            var command = new TodoSaveCommand(Title, Deadline);
-            _useCase.Save(command);
         }
 
         private string _title;
@@ -50,6 +46,12 @@ namespace XamarinTodo.ViewModels
             }
         }
 
-        public DelegateCommand CreateButton { get; }
+        public DelegateCommand CreateButton { get; set; }
+
+        public void Create()
+        {
+            var command = new TodoSaveCommand(Title, Deadline);
+            _useCase.Save(command);
+        }
     }
 }

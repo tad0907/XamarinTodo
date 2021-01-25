@@ -5,6 +5,10 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="XamarinTodo.Views.TodoListPage"
              Title="{Binding PageTitle}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+"
+                     Command="{Binding ToTodoCreatePageButton}"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ListView ItemsSource="{Binding Todos}"
                   HasUnevenRows="True"

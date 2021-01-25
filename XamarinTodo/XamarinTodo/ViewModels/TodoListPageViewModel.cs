@@ -17,6 +17,8 @@ namespace XamarinTodo.ViewModels
                    : base(navigationService)
         {
             _useCase = useCase;
+
+            ToTodoCreatePageButton = new DelegateCommand(ToTodoCreatePage);
         }
 
         public override void Initialize(INavigationParameters parameters)
@@ -36,6 +38,13 @@ namespace XamarinTodo.ViewModels
             {
                 SetProperty(ref _todos, value);
             }
-        } 
+        }
+
+        public DelegateCommand ToTodoCreatePageButton { get; set; }
+
+        public async void ToTodoCreatePage()
+        {
+            await NavigationService.NavigateAsync("NavigationPage/TodoCreatePage");
+        }
     }
 }
