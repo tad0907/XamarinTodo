@@ -33,10 +33,9 @@ namespace XamarinTodo
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            var dbPath = Path.Combine(FileSystem.AppDataDirectory, "local.db3");
-
             var optionsBuilder = new DbContextOptionsBuilder<LocalDbContext>();
-            optionsBuilder.UseSqlite(@"Data Source=" + dbPath);
+            optionsBuilder.UseSqlite(@"Data Source=" + Path.Combine(FileSystem.AppDataDirectory, "local.db3"));
+            containerRegistry.RegisterInstance(optionsBuilder.Options);
             containerRegistry.RegisterSingleton<LocalDbContext>();
 
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
@@ -44,7 +43,7 @@ namespace XamarinTodo
             containerRegistry.RegisterSingleton<ITodoFactory, TodoFactory>();
             containerRegistry.RegisterSingleton<ITodoRepository, TodoRepository>();
 
-            containerRegistry.RegisterScoped<TodoUseCase>();
+            containerRegistry.RegisterSingleton<TodoUseCase>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();

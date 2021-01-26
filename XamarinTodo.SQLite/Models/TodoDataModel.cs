@@ -9,9 +9,8 @@ namespace XamarinTodo.SQLite.Models
     [Table("Todos")]
     public class TodoDataModel
     {
-        [Key]
-        [Required]
-        public Guid Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public string Id { get; set; }
 
         [Required]
         [MaxLength(20)]

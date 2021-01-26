@@ -39,28 +39,9 @@ namespace XamarinTodo.InMemory.Persistence.Todos
 
         public List<Todo> FindAll()
         {
-            return CreateFake();
-
-            /*
             return Db.Values
                 .Select(DeepClone)
                 .ToList();
-            */
-        }
-
-        private List<Todo> CreateFake()
-        {
-            var todos = new List<Todo>();
-            for(var i = 0; i < 3; i++)
-            {
-                var id = new TodoId(Guid.NewGuid());
-                var title = new TodoTitle((i + 1).ToString() + "番目のタイトル");
-                var deadline = new TodoDeadline(new DateTime(2021, 1, i + 1));
-                var isCompleted = new TodoIsCompleted(false);
-                todos.Add(new Todo(id, title, deadline, isCompleted));
-            }
-
-            return todos;
         }
     }
 }

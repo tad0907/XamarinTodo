@@ -11,7 +11,7 @@ namespace XamarinTodo.ViewModels
         {
         }
 
-        public TodoListPageViewModelTodo(Guid id, string title, DateTime? deadline, bool isCompleted)
+        public TodoListPageViewModelTodo(string id, string title, DateTime? deadline, bool isCompleted)
         {
             Id = id;
             Title = title;
@@ -19,7 +19,7 @@ namespace XamarinTodo.ViewModels
             IsCompleted = isCompleted;
         }
 
-        public Guid Id { get; }
+        public string Id { get; }
         public string Title { get; }
         public DateTime? Deadline { get; }
         public bool IsCompleted { get; }

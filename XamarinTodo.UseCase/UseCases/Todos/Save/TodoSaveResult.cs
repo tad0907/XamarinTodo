@@ -6,11 +6,11 @@ namespace XamarinTodo.UseCase.UseCases.Todos.Save
 {
     public class TodoSaveResult
     {
-        public TodoSaveResult(Guid createdId)
+        public TodoSaveResult(string createdId)
         {
             CreatedId = createdId;
         }
 
-        public Guid CreatedId { get; private set; }
+        public string CreatedId { get; private set; }
     }
 }

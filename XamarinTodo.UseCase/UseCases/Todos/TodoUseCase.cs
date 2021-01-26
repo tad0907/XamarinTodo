@@ -33,19 +33,14 @@ namespace XamarinTodo.UseCase.UseCases.Todos
 
         public TodoSaveResult Save(TodoSaveCommand command)
         {
-            using (var transaction = new TransactionScope())
-            {
-                var title = new TodoTitle(command.Title);
-                var deadline = new TodoDeadline(command.Deadline);
+            var title = new TodoTitle(command.Title);
+            var deadline = new TodoDeadline(command.Deadline);
 
-                var Todo = _todoFactory.Create(title, deadline);
+            var Todo = _todoFactory.Create(title, deadline);
 
-                _todoRepository.Save(Todo);
+            _todoRepository.Save(Todo);
 
-                transaction.Complete();
-
-                return new TodoSaveResult(Todo.Id.Value);
-            }
+            return new TodoSaveResult(Todo.Id.Value);
         }
     }
 }

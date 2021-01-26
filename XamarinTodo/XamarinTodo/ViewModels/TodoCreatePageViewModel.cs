@@ -48,10 +48,12 @@ namespace XamarinTodo.ViewModels
 
         public DelegateCommand CreateButton { get; set; }
 
-        public void Create()
+        public async void Create()
         {
             var command = new TodoSaveCommand(Title, Deadline);
             _useCase.Save(command);
+
+            await NavigationService.NavigateAsync("NavigationPage/TodoListPage");
         }
     }
 }

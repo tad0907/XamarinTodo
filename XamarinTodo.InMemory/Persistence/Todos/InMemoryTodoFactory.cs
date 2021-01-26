@@ -11,13 +11,18 @@ namespace XamarinTodo.InMemory.Persistence.Todos
         public InMemoryTodoFactory()
         {
         }
+        public SerialNumberAssigner NumberAssigner { get; } = new SerialNumberAssigner();
 
         public Todo Create(TodoTitle title, TodoDeadline deadline)
         {
-            var id = new TodoId(Guid.NewGuid());
+            var id = NumberAssigner.Next();
             var isCompleted = new TodoIsCompleted(false);
 
-            return new Todo(id, title, deadline, isCompleted);
+            return new Todo(
+                new TodoId(id.ToString()),
+                title,
+                deadline,
+                new TodoIsCompleted(false));
         }
     }
 }

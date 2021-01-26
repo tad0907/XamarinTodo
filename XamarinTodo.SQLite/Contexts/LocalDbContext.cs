@@ -10,12 +10,20 @@ namespace XamarinTodo.SQLite.Contexts
 {
     public class LocalDbContext : DbContext
     {
-        public LocalDbContext(DbContextOptions<LocalDbContext> options)
-            : base(options)
+        private static Action<DbContextOptionsBuilder> _onConfigure;
+
+        public LocalDbContext(DbContextOptions<LocalDbContext> options) : base(options)
         {
+            SQLitePCL.Batteries_V2.Init();
+
+            this.Database.EnsureCreated();
         }
 
-        public string DbDirectory { get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.EnableSensitiveDataLogging(true);
+            _onConfigure?.Invoke(optionsBuilder);
+        }
 
         public DbSet<TodoDataModel> Todos { get; set; }
     }
