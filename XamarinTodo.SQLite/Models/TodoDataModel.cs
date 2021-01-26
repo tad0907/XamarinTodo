@@ -11,7 +11,6 @@ namespace XamarinTodo.SQLite.Models
     {
         [Key]
         [Required]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public Guid Id { get; set; }
 
         [Required]
