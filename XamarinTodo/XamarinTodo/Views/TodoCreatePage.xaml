@@ -10,7 +10,7 @@
             <StackLayout Orientation="Horizontal">
                 <Label Text="タイトル"/>
                 <Entry Text="{Binding Title}"
-                   Keyboard="Numeric"
+                   Keyboard="Text"
                    Placeholder="タイトル"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
