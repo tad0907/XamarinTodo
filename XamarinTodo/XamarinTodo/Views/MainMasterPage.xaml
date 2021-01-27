@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:prism="http://prismlibrary.com"
+                  xmlns:views="clr-namespace:XamarinTodo.Views"
+                  prism:ViewModelLocator.AutowireViewModel="True"
+                  x:Class="XamarinTodo.Views.MainMasterPage">
+
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu">
+            <StackLayout Padding="20">
+                <!-- TODO: // Update the Layout and add some real menu items  -->
+                <Button Text="今日の予定" Command="{Binding NavigateCommand}" CommandParameter="ViewA" />
+                <Button Text="重要" Command="{Binding NavigateCommand}" CommandParameter="ViewA" />
+                <Button Text="今後の予定" Command="{Binding NavigateCommand}" CommandParameter="ViewA" />
+                <Button Text="今後の自分に割り当て済み" Command="{Binding NavigateCommand}" CommandParameter="ViewA" />
+                <Button Text="フラグを設定したメール" Command="{Binding NavigateCommand}" CommandParameter="ViewA" />
+                <Button Text="Tasks" Command="{Binding NavigateCommand}" CommandParameter="ViewA" />
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <views:TodoListPage/>
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+    
+</MasterDetailPage>

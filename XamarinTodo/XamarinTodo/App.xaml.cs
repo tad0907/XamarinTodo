@@ -28,7 +28,7 @@ namespace XamarinTodo
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/TodoListPage");
+            await NavigationService.NavigateAsync($"/{nameof(MainMasterPage)}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -51,6 +51,7 @@ namespace XamarinTodo
 
             containerRegistry.RegisterForNavigation<TodoEditPage, TodoEditPageViewModel>();
             containerRegistry.RegisterForNavigation<TodoCreatePage, TodoCreatePageViewModel>();
+            containerRegistry.RegisterForNavigation<MainMasterPage, MainMasterPageViewModel>();
         }
     }
 }
