@@ -17,8 +17,11 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
-                            <CheckBox IsChecked="{Binding IsCompleted}"/>
-                            <Label Text="{Binding Title}"/>
+                            <CheckBox IsChecked="{Binding IsCompleted}"
+                                      Margin="5, 1, 5, 1"
+                                      Color="Gray"/>
+                            <Label Text="{Binding Title}"
+                                   FontSize="Medium"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
