@@ -46,7 +46,6 @@ namespace XamarinTodo
             containerRegistry.RegisterSingleton<TodoUseCase>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<TodoListPage, TodoListPageViewModel>();
 
             containerRegistry.RegisterForNavigation<TodoEditPage, TodoEditPageViewModel>();

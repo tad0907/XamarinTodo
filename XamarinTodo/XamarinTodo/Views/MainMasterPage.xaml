@@ -9,6 +9,27 @@
     <MasterDetailPage.Master>
         <ContentPage Title="Menu">
             <StackLayout Padding="20">
+                <Label Text="Menu"
+                       FontSize="18"
+                       Margin="10,36,0,5"/>
+                <ListView ItemsSource="{Binding Menus}"
+                          VerticalOptions="FillAndExpand">
+                    <ListView.Behaviors>
+                        <prism:EventToCommandBehavior EventName="ItemSelected"
+                                                      Command="{Binding Path=ToMovePage}"
+                                                      EventArgsParameterPath="SelectedItem"/>
+                    </ListView.Behaviors>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Title}"
+                                           HorizontalOptions="FillAndExpand" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
                 <!-- TODO: // Update the Layout and add some real menu items  -->
                 <Button Text="今日の予定" Command="{Binding NavigateCommand}" CommandParameter="ViewA" />
                 <Button Text="重要" Command="{Binding NavigateCommand}" CommandParameter="ViewA" />

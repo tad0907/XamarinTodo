@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using XamarinTodo.UseCase.UseCases.Todos;
+using XamarinTodo.Views;
 
 namespace XamarinTodo.ViewModels
 {
@@ -44,7 +45,8 @@ namespace XamarinTodo.ViewModels
 
         public async void ToTodoCreatePage()
         {
-            await NavigationService.NavigateAsync("NavigationPage/TodoCreatePage");
+            await NavigationService.NavigateAsync($"/{nameof(TodoCreatePage)}");
+//            await NavigationService.NavigateAsync("NavigationPage/TodoCreatePage");
         }
     }
 }
