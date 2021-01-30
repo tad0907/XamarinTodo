@@ -29,21 +29,15 @@ namespace XamarinTodo.ViewModels
         private string _title;
         public string Title
         {
-            get { return _title; }
-            set
-            {
-                SetProperty(ref _title, value);
-            }
+            get => _title;
+            set => SetProperty(ref _title, value);
         }
 
         private DateTime? _deadline;
         public DateTime? Deadline
         {
-            get { return _deadline; }
-            set
-            {
-                SetProperty(ref _deadline, value);
-            }
+            get => _deadline;
+            set => SetProperty(ref _deadline, value);
         }
 
         public DelegateCommand CreateButton { get; set; }

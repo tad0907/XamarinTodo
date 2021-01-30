@@ -15,7 +15,7 @@
                 <ListView ItemsSource="{Binding Menus}"
                           VerticalOptions="FillAndExpand">
                     <ListView.Behaviors>
-                        <prism:EventToCommandBehavior EventName="ItemSelected"
+                        <behabiors:EventToCommandBehavior EventName="ItemSelected"
                                                       Command="{Binding Path=ToMovePage}"
                                                       EventArgsParameterPath="SelectedItem"/>
                     </ListView.Behaviors>

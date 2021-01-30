@@ -23,11 +23,8 @@ namespace XamarinTodo.ViewModels
 
         public ObservableCollection<MainMasterPageViewModelMenu> Menus
         {
-            get { return _menus; }
-            set
-            {
-                SetProperty(ref _menus, value);
-            }
+            get => _menus;
+            set => SetProperty(ref _menus, value);
         }
         public Command<MainMasterPageViewModelMenu> ItemSelectedCommand;
 
@@ -35,8 +32,8 @@ namespace XamarinTodo.ViewModels
 
         public bool IsPresented
         {
-            get { return isPresented; }
-            set { SetProperty(ref isPresented, value); }
+            get => isPresented;
+            set => SetProperty(ref isPresented, value);
         }
 
         public async override void Initialize(INavigationParameters parameters)

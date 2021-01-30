@@ -34,11 +34,8 @@ namespace XamarinTodo.ViewModels
             = new ObservableCollection<TodoListPageViewModelTodo>();
         public ObservableCollection<TodoListPageViewModelTodo> Todos 
         {
-            get { return _todos; }
-            set
-            {
-                SetProperty(ref _todos, value);
-            }
+            get => _todos;
+            set => SetProperty(ref _todos, value);
         }
 
         public DelegateCommand ToTodoCreatePageButton { get; set; }
