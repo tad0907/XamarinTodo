@@ -7,15 +7,21 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using XamarinTodo.UseCase.UseCases.Todos;
+using XamarinTodo.Views;
 
 namespace XamarinTodo.ViewModels
 {
     public class MainMasterPageViewModel : ViewModelBase
     {
+        private TodoUseCase _useCase;
 
-        public MainMasterPageViewModel(INavigationService navigationService)
+        public MainMasterPageViewModel(INavigationService navigationService, TodoUseCase useCase)
                    : base(navigationService)
         {
+            _useCase = useCase;
+
+            DisplayTodayCommand = new DelegateCommand(DisplayToday);
         }
 
         private ObservableCollection<MainMasterPageViewModelMenu> _menus
@@ -46,10 +52,11 @@ namespace XamarinTodo.ViewModels
             IsPresented = false;
         }
 
-        public async void ItemSelected(MainMasterPageViewModelMenu menu)
+        public DelegateCommand DisplayTodayCommand { get; set; }
+
+        public async void DisplayToday()
         {
-            await NavigationService.NavigateAsync($"NavigationPage/{menu.PageName}");
-            IsPresented = false;
+            await NavigationService.NavigateAsync($"{nameof(TodoCreatePage)}");
         }
     }
 }
