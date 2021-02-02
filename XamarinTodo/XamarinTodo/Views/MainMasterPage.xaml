@@ -7,15 +7,22 @@
                   x:Class="XamarinTodo.Views.MainMasterPage">
     <MasterDetailPage.Master>
         <ContentPage Title="Menu">
-            <StackLayout Padding="20">
-                <!-- TODO: // Update the Layout and add some real menu items  -->
-                <Button Text="今日の予定"
-                        Command="{Binding DisplayTodayCommand}"
-                        CommandParameter="SelectTargetPage" />
-                <Button Text="重要"
-                        Command="{Binding NavigateCommand}"
-                        CommandParameter="ViewA" />
-            </StackLayout>
+            <ContentPage.Content>
+                <ListView ItemsSource="{Binding Menus}"
+                          HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Title}"
+                                           FontSize="Medium"
+                                           TextColor="{Binding TextColor}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ContentPage.Content>
         </ContentPage>
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>

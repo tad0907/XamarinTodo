@@ -46,7 +46,8 @@ namespace XamarinTodo.ViewModels
         {
             base.Initialize(parameters);
 
-            Menus.Add(new MainMasterPageViewModelMenu("タスク一覧", "TaskListPage"));
+            Menus.Add(new MainMasterPageViewModelMenu("Today", "TaskListPage", "LightPink"));
+            Menus.Add(new MainMasterPageViewModelMenu("Importance", "TaskListPage", "Red"));
 
             await NavigationService.NavigateAsync($"NavigationPage/TaskListPage");
             IsPresented = false;
