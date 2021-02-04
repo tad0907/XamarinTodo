@@ -28,7 +28,7 @@ namespace XamarinTodo
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync($"/{nameof(MainMasterPage)}");
+            await NavigationService.NavigateAsync($"/{nameof(MainMasterPage)}/NavigationPage/{nameof(TodoListPage)}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

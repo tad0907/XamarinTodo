@@ -12,27 +12,21 @@ using XamarinTodo.Views;
 
 namespace XamarinTodo.ViewModels
 {
-    public class MainMasterPageViewModel : ViewModelBase
+    public class MainMasterPageViewModel : BindableBase
     {
-        private TodoUseCase _useCase;
-
-        public MainMasterPageViewModel(INavigationService navigationService, TodoUseCase useCase)
-                   : base(navigationService)
+        public MainMasterPageViewModel(INavigationService navigationService)
         {
-            _useCase = useCase;
-
-            DisplayTodayCommand = new DelegateCommand(DisplayToday);
+            NavigationService = navigationService;
         }
+        private INavigationService NavigationService { get; }
 
-        private ObservableCollection<MainMasterPageViewModelMenu> _menus
-            = new ObservableCollection<MainMasterPageViewModelMenu>();
-
-        public ObservableCollection<MainMasterPageViewModelMenu> Menus
+        public ObservableCollection<MenuPageViewModel> MenuItems { get; } 
+            = new ObservableCollection<MenuPageViewModel>
         {
-            get => _menus;
-            set => SetProperty(ref _menus, value);
-        }
-        public Command<MainMasterPageViewModelMenu> ItemSelectedCommand;
+            new MenuPageViewModel("Today", "TodoListPage", "LightPink"),
+            new MenuPageViewModel("Importance", "TodoListPage", "Red")
+        };
+
 
         private bool isPresented;
 
@@ -42,22 +36,10 @@ namespace XamarinTodo.ViewModels
             set => SetProperty(ref isPresented, value);
         }
 
-        public async override void Initialize(INavigationParameters parameters)
+        public async Task PageChangeAsync(MenuPageViewModel menu)
         {
-            base.Initialize(parameters);
-
-            Menus.Add(new MainMasterPageViewModelMenu("Today", "TaskListPage", "LightPink"));
-            Menus.Add(new MainMasterPageViewModelMenu("Importance", "TaskListPage", "Red"));
-
-            await NavigationService.NavigateAsync($"NavigationPage/TaskListPage");
+            await NavigationService.NavigateAsync($"NavigationPage/{menu.PageName}");
             IsPresented = false;
-        }
-
-        public DelegateCommand DisplayTodayCommand { get; set; }
-
-        public async void DisplayToday()
-        {
-            await NavigationService.NavigateAsync($"{nameof(TodoCreatePage)}");
         }
     }
 }

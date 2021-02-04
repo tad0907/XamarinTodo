@@ -4,34 +4,14 @@
                   xmlns:prism="http://prismlibrary.com"
                   xmlns:views="clr-namespace:XamarinTodo.Views"
                   prism:ViewModelLocator.AutowireViewModel="True"
-                  x:Class="XamarinTodo.Views.MainMasterPage">
+                  x:Class="XamarinTodo.Views.MainMasterPage"
+                  IsPresented="{Binding IsPresented, Mode=TwoWay}">
     <MasterDetailPage.Master>
-        <ContentPage Title="Menu">
-            <ContentPage.Content>
-                <ListView ItemsSource="{Binding Menus}"
-                          HasUnevenRows="True">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Orientation="Horizontal"
-                                             Margin="5,10,5,10">
-                                    <Label Text="{Binding Title}"
-                                           FontSize="Small"
-                                           TextColor="{Binding TextColor}"/>
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </ContentPage.Content>
-        </ContentPage>
+        <views:MenuPage />
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
-        <NavigationPage>
-            <x:Arguments>
-                <views:TodoListPage/>
-            </x:Arguments>
-        </NavigationPage>
+        <ContentPage Title="Dummy" />
+        <!-- Dummy -->
     </MasterDetailPage.Detail>
     
 </MasterDetailPage>

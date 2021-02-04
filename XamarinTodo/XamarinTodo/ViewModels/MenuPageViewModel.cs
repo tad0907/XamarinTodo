@@ -6,19 +6,16 @@ using System.Linq;
 
 namespace XamarinTodo.ViewModels
 {
-    public class MainMasterPageViewModelMenu
+    public class MenuPageViewModel : BindableBase
     {
-        public MainMasterPageViewModelMenu(string title, string pageName, string textColor)
+        public MenuPageViewModel(string title, string pageName , string textColor)
         {
             Title = title;
             PageName = pageName;
             TextColor = textColor;
         }
-
-        public string Title { get; set; }
-
-        public string PageName { get; set; }
-
-        public string TextColor { get; set; }
+        public string Title { get; }
+        public string PageName { get; }
+        public string TextColor { get; }
     }
 }
