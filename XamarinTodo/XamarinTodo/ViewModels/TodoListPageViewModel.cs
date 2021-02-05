@@ -42,8 +42,7 @@ namespace XamarinTodo.ViewModels
 
         public async void ToTodoCreatePage()
         {
-            await NavigationService.NavigateAsync($"/{nameof(TodoCreatePage)}");
-//            await NavigationService.NavigateAsync("NavigationPage/TodoCreatePage");
+            await NavigationService.NavigateAsync($"/{nameof(MainMasterPage)}/NavigationPage/{nameof(TodoCreatePage)}");
         }
     }
 }

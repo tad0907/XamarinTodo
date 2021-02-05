@@ -38,7 +38,7 @@ namespace XamarinTodo.ViewModels
 
         public async Task PageChangeAsync(MenuPageViewModel menu)
         {
-            await NavigationService.NavigateAsync($"NavigationPage/{menu.PageName}");
+            await NavigationService.NavigateAsync($"/{nameof(MainMasterPage)}/NavigationPage/{menu.PageName}");
             IsPresented = false;
         }
     }
