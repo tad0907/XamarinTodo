@@ -14,9 +14,12 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="{Binding Title}"
-                                   HorizontalOptions="FillAndExpand"
-                                   TextColor="{Binding TextColor}"/>
+                            <Image Source="{Binding ImageName}"/>
+                            <StackLayout>
+                                <Label Text="{Binding Title}"
+                                       HorizontalOptions="FillAndExpand"
+                                       TextColor="{Binding TextColor}"/>
+                            </StackLayout>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
