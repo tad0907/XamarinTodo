@@ -21,7 +21,8 @@
                                       Margin="5, 1, 5, 1"
                                       Color="Gray"/>
                             <Label Text="{Binding Title}"
-                                   FontSize="Medium"/>
+                                   FontSize="Medium"
+                                   VerticalTextAlignment="Center"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

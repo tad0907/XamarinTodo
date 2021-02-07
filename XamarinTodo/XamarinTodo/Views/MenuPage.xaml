@@ -17,8 +17,10 @@
                             <Image Source="{Binding ImageName}"/>
                             <StackLayout>
                                 <Label Text="{Binding Title}"
-                                       HorizontalOptions="FillAndExpand"
-                                       TextColor="{Binding TextColor}"/>
+                                       FontSize="Medium"
+                                       TextColor="{Binding TextColor}"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalOptions="FillAndExpand"/>
                             </StackLayout>
                         </StackLayout>
                     </ViewCell>

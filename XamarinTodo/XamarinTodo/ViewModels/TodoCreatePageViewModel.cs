@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using XamarinTodo.UseCase.UseCases.Todos;
 using XamarinTodo.UseCase.UseCases.Todos.Save;
+using XamarinTodo.Views;
 
 namespace XamarinTodo.ViewModels
 {
@@ -47,7 +48,7 @@ namespace XamarinTodo.ViewModels
             var command = new TodoSaveCommand(Title, Deadline);
             _useCase.Save(command);
 
-            await NavigationService.NavigateAsync("NavigationPage/TodoListPage");
+            await NavigationService.NavigateAsync($"/{nameof(MainMasterPage)}/NavigationPage/{nameof(TodoListPage)}");
         }
     }
 }
