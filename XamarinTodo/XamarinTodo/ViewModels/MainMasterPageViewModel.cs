@@ -23,8 +23,8 @@ namespace XamarinTodo.ViewModels
         public ObservableCollection<MenuPageViewModel> MenuItems { get; } 
             = new ObservableCollection<MenuPageViewModel>
         {
-            new MenuPageViewModel("Today", "TodoListPage", "Sun.png", "LightPink"),
-            new MenuPageViewModel("Importance", "TodoListPage", "MtFuji.png", "Red")
+            new MenuPageViewModel("Today", "TodoListPage", "Sun", "LightPink"),
+            new MenuPageViewModel("Importance", "TodoListPage", "MtFuji", "Red")
         };
 
 
