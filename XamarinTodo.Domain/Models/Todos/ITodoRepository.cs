@@ -9,6 +9,7 @@ namespace XamarinTodo.Domain.Models.Todos
         void Delete(Todo todo);
         Todo Find(TodoId id);
         Todo Find(TodoTitle title);
+        List<Todo> List(TodoDeadline deadline);
         List<Todo> FindAll();
         void Save(Todo todo);
     }

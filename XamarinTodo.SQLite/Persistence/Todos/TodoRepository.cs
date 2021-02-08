@@ -54,6 +54,20 @@ namespace XamarinTodo.SQLite.Persistence.Todos
             return ToModel(target);
         }
 
+        public List<Todo> List(TodoDeadline deadline)
+        {
+            var target = _context.Todos
+                .Where(todoData => todoData.Deadline == deadline.Value)
+                .Select(ToModel)
+                .ToList();
+            if (target == null)
+            {
+                return null;
+            }
+
+            return target;
+        }
+
         public List<Todo> FindAll()
         {
             return _context.Todos.Select(ToModel).ToList();
