@@ -27,7 +27,14 @@ namespace XamarinTodo.UseCase.UseCases.Todos
 
         public TodoGetAllResult GetAll()
         {
-            var todos = _todoRepository.FindAll();
+            var todos = _todoRepository.List();
+            return new TodoGetAllResult(todos.Select(x => new TodoData(x)).ToList());
+        }
+
+        public TodoGetAllResult GetToday()
+        {
+            var today = DateTime.Today;
+            var todos = _todoRepository.List(new Func<Todo, bool>(todo => todo.Deadline == new TodoDeadline(today)));
             return new TodoGetAllResult(todos.Select(x => new TodoData(x)).ToList());
         }
 

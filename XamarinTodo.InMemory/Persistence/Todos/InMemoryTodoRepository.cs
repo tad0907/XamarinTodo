@@ -37,15 +37,15 @@ namespace XamarinTodo.InMemory.Persistence.Todos
             }
         }
 
-        public List<Todo> List(TodoDeadline deadline)
+        public List<Todo> List(Func<Todo, bool> condition)
         {
             return Db.Values
                 .Select(DeepClone)
-                .Where(todoData => todoData.Deadline.Value == deadline.Value)
+                .Where(condition)
                 .ToList();
         }
 
-        public List<Todo> FindAll()
+        public List<Todo> List()
         {
             return Db.Values
                 .Select(DeepClone)

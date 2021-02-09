@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using XamarinTodo.Domain.Models.Todos;
 using XamarinTodo.SQLite.Contexts;
@@ -54,11 +55,11 @@ namespace XamarinTodo.SQLite.Persistence.Todos
             return ToModel(target);
         }
 
-        public List<Todo> List(TodoDeadline deadline)
+        public List<Todo> List(Func<Todo, bool> condition)
         {
             var target = _context.Todos
-                .Where(todoData => todoData.Deadline == deadline.Value)
                 .Select(ToModel)
+                .Where(condition)
                 .ToList();
             if (target == null)
             {
@@ -68,7 +69,7 @@ namespace XamarinTodo.SQLite.Persistence.Todos
             return target;
         }
 
-        public List<Todo> FindAll()
+        public List<Todo> List()
         {
             return _context.Todos.Select(ToModel).ToList();
         }

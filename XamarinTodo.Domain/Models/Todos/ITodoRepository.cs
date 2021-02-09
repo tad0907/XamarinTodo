@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace XamarinTodo.Domain.Models.Todos
@@ -9,8 +10,8 @@ namespace XamarinTodo.Domain.Models.Todos
         void Delete(Todo todo);
         Todo Find(TodoId id);
         Todo Find(TodoTitle title);
-        List<Todo> List(TodoDeadline deadline);
-        List<Todo> FindAll();
+        List<Todo> List(Func<Todo, bool> condition);
+        List<Todo> List();
         void Save(Todo todo);
     }
 }
