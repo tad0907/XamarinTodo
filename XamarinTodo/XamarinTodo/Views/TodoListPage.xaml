@@ -12,7 +12,8 @@
     <ContentPage.Content>
         <ListView ItemsSource="{Binding Todos}"
                   HasUnevenRows="True"
-                  ItemTapped="TodoListView_ItemTapped">
+                  ItemTapped="TodoListView_ItemTapped"
+                  Margin="10,10,10,10">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

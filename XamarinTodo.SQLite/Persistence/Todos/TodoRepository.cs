@@ -18,9 +18,11 @@ namespace XamarinTodo.SQLite.Persistence.Todos
             _context = context;
         }
 
-        public void Delete(Todo todo)
+        public void Delete(TodoId id)
         {
-            var target = _context.Todos.Find(todo.Id.Value);
+            var target = _context
+                .Todos
+                .SingleOrDefault(model => model.Id == id.Value);
 
             if (target == null)
             {
@@ -28,13 +30,15 @@ namespace XamarinTodo.SQLite.Persistence.Todos
             }
 
             _context.Todos.Remove(target);
-
             _context.SaveChanges();
         }
 
         public Todo Find(TodoId id)
         {
-            var target = _context.Todos.Find(id.Value);
+            var target = _context
+                .Todos
+                .SingleOrDefault(model => model.Id == id.Value);
+
             if (target == null)
             {
                 return null;
@@ -45,8 +49,9 @@ namespace XamarinTodo.SQLite.Persistence.Todos
 
         public Todo Find(TodoTitle title)
         {
-            var target = _context.Todos
-                .FirstOrDefault(todoData => todoData.Title == title.Value);
+            var target = _context
+                .Todos
+                .SingleOrDefault(todoData => todoData.Title == title.Value);
             if (target == null)
             {
                 return null;
@@ -71,12 +76,17 @@ namespace XamarinTodo.SQLite.Persistence.Todos
 
         public List<Todo> List()
         {
-            return _context.Todos.Select(ToModel).ToList();
+            return _context
+                .Todos
+                .Select(ToModel)
+                .ToList();
         }
 
         public void Save(Todo todo)
         {
-            var found = _context.Todos.Find(todo.Id.Value);
+            var found = _context
+                .Todos
+                .SingleOrDefault(model => model.Id == todo.Id.Value);
 
             if (found == null)
             {

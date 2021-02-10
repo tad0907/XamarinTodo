@@ -34,10 +34,9 @@ namespace XamarinTodo.InMemory.Foundation
             Db[id] = DeepClone(value);
         }
 
-        public virtual void Delete(TValue value)
+        public virtual void Delete(TKey key)
         {
-            var id = GetKey(value);
-            Db.Remove(id);
+            Db.Remove(key);
         }
 
         protected abstract TKey GetKey(TValue value);

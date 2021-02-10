@@ -7,7 +7,7 @@ namespace XamarinTodo.Domain.Models.Todos
 {
     public interface ITodoRepository
     {
-        void Delete(Todo todo);
+        void Delete(TodoId id);
         Todo Find(TodoId id);
         Todo Find(TodoTitle title);
         List<Todo> List(Func<Todo, bool> condition);
