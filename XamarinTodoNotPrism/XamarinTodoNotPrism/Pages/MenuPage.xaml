@@ -3,8 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinTodoNotPrism.Pages.MenuPage">
   <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
+        <StackLayout>
+            <Label Text="Menu"
+               FontSize="18"
+               Margin="10,36,0,5"/>
+            <ListView ItemsSource="{Binding MenuItems}"
+                  VerticalOptions="FillAndExpand"
+                  ItemSelected="ListViewMenu_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding ImageName}"/>
+                                <StackLayout>
+                                    <Label Text="{Binding Title}"
+                                       FontSize="Medium"
+                                       TextColor="{Binding TextColor}"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalOptions="FillAndExpand"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
   </ContentView.Content>
 </ContentView>

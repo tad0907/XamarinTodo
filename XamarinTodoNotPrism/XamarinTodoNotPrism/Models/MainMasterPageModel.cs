@@ -5,7 +5,7 @@ using System.Text;
 
 namespace XamarinTodoNotPrism.Models
 {
-    public class MainMaseterPageModel
+    public class MainMasterPageModel
     {
         public ObservableCollection<MenuPageModel> MenuItems { get; }
             = new ObservableCollection<MenuPageModel>
