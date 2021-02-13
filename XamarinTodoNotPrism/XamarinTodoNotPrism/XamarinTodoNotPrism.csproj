@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -19,6 +19,12 @@
     <ProjectReference Include="..\..\XamarinTodo.Domain\XamarinTodo.Domain.csproj" />
     <ProjectReference Include="..\..\XamarinTodo.SQLite\XamarinTodo.SQLite.csproj" />
     <ProjectReference Include="..\..\XamarinTodo.UseCase\XamarinTodo.UseCase.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Models\MasterDetailPageMasterMenuItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

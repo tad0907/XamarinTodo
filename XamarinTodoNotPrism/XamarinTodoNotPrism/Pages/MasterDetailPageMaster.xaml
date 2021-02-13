@@ -32,10 +32,14 @@
         <DataTemplate>
           <ViewCell>
             <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand">
-              <Label VerticalOptions="FillAndExpand" 
-                    VerticalTextAlignment="Center" 
-                    Text="{Binding Title}" 
-                    FontSize="24"/>
+                <Image Source="{Binding ImageName}"/>
+                <StackLayout>
+                    <Label Text="{Binding Title}"
+                            FontSize="Medium"
+                            TextColor="{Binding TextColor}"
+                            VerticalTextAlignment="Center"
+                            HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
             </StackLayout>
           </ViewCell>
         </DataTemplate>

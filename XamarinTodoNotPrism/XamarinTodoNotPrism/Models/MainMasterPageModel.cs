@@ -7,11 +7,11 @@ namespace XamarinTodoNotPrism.Models
 {
     public class MainMasterPageModel
     {
-        public ObservableCollection<MenuPageModel> MenuItems { get; }
-            = new ObservableCollection<MenuPageModel>
+        public ObservableCollection<MasterDetailPageMasterViewModel> MenuItems { get; }
+            = new ObservableCollection<MasterDetailPageMasterViewModel>
         {
-            new MenuPageModel("Today", "TodoListPage", "Sun", "LightPink"),
-            new MenuPageModel("Importance", "TodoListPage", "MtFuji", "Red")
+            new MasterDetailPageMasterViewModel("Today", "TodoListPage", "Sun", "LightPink"),
+            new MasterDetailPageMasterViewModel("Importance", "TodoListPage", "MtFuji", "Red")
         };
     }
 }
