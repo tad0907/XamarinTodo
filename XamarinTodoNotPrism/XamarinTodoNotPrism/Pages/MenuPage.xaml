@@ -9,7 +9,7 @@
                Margin="10,36,0,5"/>
             <ListView ItemsSource="{Binding MenuItems}"
                   VerticalOptions="FillAndExpand"
-                  ItemSelected="ListViewMenu_ItemSelected">
+                  ItemSelected="ListView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
