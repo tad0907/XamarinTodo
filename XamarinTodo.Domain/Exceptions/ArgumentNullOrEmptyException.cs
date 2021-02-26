@@ -4,7 +4,7 @@ using System.Text;
 
 namespace XamarinTodo.Domain.Exceptions
 {
-    class ArgumentNullOrEmptyException : Exception
+    public class ArgumentNullOrEmptyException : Exception
     {
         public ArgumentNullOrEmptyException()
         {
